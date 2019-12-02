@@ -67,7 +67,7 @@ const withCommonConfig = options => Object.assign({}, options, {
                 ],
             },
             {
-                test: /\.(jpg|png|gif)$/,
+                test: /\.(jpe?g|png|gif)$/,
                 use:  [
                     {
                         loader:  'url-loader',
@@ -93,7 +93,7 @@ const withCommonConfig = options => Object.assign({}, options, {
                                 optimizationLevel: 7,
                             },
                             pngquant: {
-                                quality: '65-90',
+                                quality: [0.65, 0.90],
                                 speed:   4,
                             },
                         },

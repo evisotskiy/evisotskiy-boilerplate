@@ -13,7 +13,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'sanitize.css/sanitize.css';
 
-import App from './App';
+import App from 'common/superComponents/App';
 
 // Import i18n messages
 import { translationMessages } from './i18n';
@@ -33,7 +33,7 @@ if (module.hot) {
     // Hot reloadable React components and translation json files
     // modules.hot.accept does not accept dynamic dependencies,
     // have to be constants at compile-time
-    module.hot.accept(['./i18n', './App'], () => {
+    module.hot.accept(['./i18n', 'common/superComponents/App'], () => {
         ReactDOM.unmountComponentAtNode(MOUNT_NODE);
         render(translationMessages);
     });

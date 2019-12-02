@@ -64,7 +64,7 @@ module.exports = withCommonConfig({
     plugins: [
         // Minify and optimize the index.html
         new HtmlWebpackPlugin({
-            template: `${ CONSTANTS.PATHS.SRC }/index.html`,
+            template: `${ CONSTANTS.PATHS.SRC }/setup/index.html`,
             minify:   {
                 removeComments:                true,
                 collapseWhitespace:            true,
@@ -81,10 +81,10 @@ module.exports = withCommonConfig({
         }),
 
         new CompressionPlugin({
-            algorithm: 'gzip',
-            test:      /\.jsx?$|\.css$|\.html$/,
-            threshold: 10240,
-            minRatio:  0.8,
+            algorithm:            'gzip',
+            test:                 /\.jsx?$|\.css$|\.html$/,
+            minRatio:             0.8,
+            deleteOriginalAssets: true,
         }),
 
         new HashedModuleIdsPlugin({

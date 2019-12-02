@@ -81,4 +81,11 @@ module.exports = {
     'template-curly-spacing': [2, 'always'],
     'arrow-parens': 0,
   },
+  settings: {
+    'import/resolver': {
+      webpack: {
+        config: './webpack/webpack.prod.js',
+      },
+    },
+  },
 };

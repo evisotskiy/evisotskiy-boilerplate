@@ -3,6 +3,12 @@
     "version": "1.0.0",
     "description": "React boilerplate with familiar to me tech stack",
     "main": "index.js",
+    "author": "Eugene Visotskiy",
+    "license": "ISC",
+    "engines": {
+        "npm": ">=5",
+        "node": ">=8.15.1"
+    },
     "scripts": {
         "start": "cross-env NODE_ENV=development node server",
         "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server",
@@ -12,17 +18,22 @@
         "build": "cross-env NODE_ENV=production webpack --config ./webpack/webpack.prod.js --color -p --progress --hide-modules --display-optimization-bailout  --display-error-details",
         "build:clean": "rimraf ./build"
     },
-    "author": "Eugene Visotskiy",
-    "license": "ISC",
+    "lint-staged": {
+        "*.{js,jsx}": [
+            "npm run lint:eslint:fix",
+            "git add --force"
+        ]
+    },
+    "pre-commit": "lint:staged",
     "dependencies": {
         "@babel/polyfill": "^7.7.0",
         "autoprefixer": "^9.7.2",
         "chalk": "^3.0.0",
         "classnames": "^2.2.6",
-        "compression": "^1.7.4",
         "connected-react-router": "^6.6.0",
         "cross-env": "^6.0.3",
         "express": "^4.17.1",
+        "express-static-gzip": "^2.0.5",
         "history": "^4.10.1",
         "intl": "^1.2.5",
         "ip": "^1.1.5",
@@ -58,13 +69,11 @@
         "eslint": "^6.6.0",
         "eslint-config-airbnb": "^18.0.1",
         "eslint-config-airbnb-base": "^14.0.0",
-        "eslint-config-prettier": "^6.7.0",
         "eslint-import-resolver-webpack": "^0.11.1",
         "eslint-plugin-arca": "^0.9.5",
         "eslint-plugin-import": "^2.18.2",
         "eslint-plugin-jsx-a11y": "^6.2.3",
         "eslint-plugin-lodash": "^6.0.0",
-        "eslint-plugin-prettier": "^3.1.1",
         "eslint-plugin-react": "^7.16.0",
         "eslint-plugin-react-hooks": "^2.3.0",
         "eslint-plugin-redux-saga": "^1.1.1",
@@ -78,7 +87,6 @@
         "postcss-import": "^12.0.1",
         "postcss-loader": "^3.0.0",
         "pre-commit": "^1.2.2",
-        "prettier": "^1.19.1",
         "react-app-polyfill": "^0.2.2",
         "react-svg-loader": "^3.0.3",
         "redux-devtools": "^3.5.0",
